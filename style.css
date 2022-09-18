@@ -1,0 +1,692 @@
+@import url('https://fonts.googleapis.com/css2? family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Selector universal*/
+*,::before::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* VARIABLES A UTLIZAR */
+:root {
+    /* Colores */
+    --color-negro: #141414;
+    --color-negro-claro: #8A8A8A;
+    --color-negro-claro2: #F2F2F2;
+    --color-blanco: #fff;
+
+    /* Tipografia */
+    --body-font: 'Poppins', sans-serif;
+
+    /* Font weight*/
+    --font-mediano: 500;
+    --font-grande: 600;
+    --font-muygrande: 700;
+
+    /* Tamaño de fuente*/
+    --letra-grande: 1.25rem;
+    --letra-masgrande: 1.5rem;
+    --letra-muygrande: 2rem;
+    --letra-h2: 1.25rem;
+    --letra-normal: .938rem;
+    --letra-pequeña: .813rem;
+    
+    /* Margenes */
+    --mb-1: .5rem; /* mb= margin-bottom*/
+    --mb-2: 1rem;
+    --mb-3: 1.5rem;
+    --mb-4: 2rem;
+    --mb-5: 2.5rem;
+    --mb-6: 3rem;
+
+    /* Capa index */
+    --z-fixed: 10;
+
+    /* Rotacion de imagenes */
+    --rotate-img: rotate(-30deg);
+}
+
+/* VARIABLES A USAR EN VENTANA MOBILL */
+
+@media screen and (min-width: 768px) {
+    :root {
+        --letra-grande: 1.5rem;
+        --letra-masgrande: 2rem;
+        --letra-muygrande: 3rem;
+        --letra-normal: 1rem;
+        --letra-pequeña: .875rem;
+    }
+}
+
+/* Comenzemos */
+body {
+    font-family: var(--body-font);
+    font-size: var(--letra-normal);
+    font-weight: var(--font-mediano);
+    color: var(--color-negro);
+    margin: 3rem 0 0 0;
+    line-height: 1.6;
+}
+
+h1,h2,h3,p,ul {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-negro);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* SELECTORES DE CLASES*/
+.section {
+    padding: 5rem 0 2rem;
+}
+
+.section-title {
+    position: relative;
+    font-size: var(--letra-grande);
+    margin-bottom: var(--mb-4);
+    text-align: center;
+    letter-spacing: .1rem;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    width: 56px;
+    height: .18rem;
+    top: -1rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: var(--color-negro);
+}
+
+/* DISEÑO (CLASES)*/
+.bd-grid {
+    max-width: 1024px;
+    display: grid;
+    grid-template-columns: 100%;
+    column-gap: 2rem;
+    width: calc(100% - 2rem);
+    margin-left: var(--mb-2);
+    margin-right: var(--mb-2);
+}
+
+.l-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: var(--color-negro-claro2);
+}
+
+/* DISEÑO DEL NAV */
+.nav {
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .nav_menu {
+        position: fixed;
+        top: 3rem;
+        left: -100%;
+        width: 70%;
+        height: 100vh;
+        padding: 2rem;
+        background-color: var(--color-blanco);
+        transition: .5s;
+    }
+}
+
+.nav_item {
+    margin-bottom: var(--mb-4);
+}
+
+.nav_logo {
+    font-weight: var(--font-grande);
+}
+
+.nav_toggle, .nav_shop {
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+/* ICONO Y BOTON MENU */
+.show {
+    left: 0;
+}
+
+/* LINK DE SECCTIONES (ACTIVE) */
+.active {
+    position: relative;
+}
+
+.active::before {
+    content: "";
+    position: absolute;
+    bottom: -.5rem;
+    left: 45%;
+    width: 4px;
+    height: 4px;
+    background-color: var(--color-negro);
+    border-radius: 50%;
+}
+
+/* CAMBIAR EL COLOR DEL ENCABEZADO EN MOVIMIENTO */
+.scroll-header {
+    background-color: var(--color-blanco);
+    box-shadow: 0 2px 4px rgba(0,0,0, .1);
+}
+
+/* SECCION INICIO*/
+.inicio {
+    background-color: var(--color-negro-claro2);
+    overflow: hidden;
+}
+
+.inicio_container {
+    height: calc(100vh - 3rem);
+}
+
+.inicio_sneaker {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-self:center;
+}
+
+.inicio_shape {
+    width: 230px;
+    height: 230px;
+    background-color: var(--color-negro);
+    border-radius: 50%;
+}
+
+.inicio_img {
+    position: absolute;
+    top: 0.5rem;
+    max-width: initial;
+    width: 270px;
+    transform: var(--rotate-img);
+}
+
+.inicio_new {
+    display: block;
+    font-size: var(--letra-pequeña);
+    font-weight: var(--font-grande);
+    margin-bottom: var(--mb-2);
+}
+
+.inicio_title {
+    font-size: var(--letra-masgrande);
+    margin-bottom: var(--mb-1);
+}
+
+.inicio_description {
+    margin-bottom: var(--mb-6);
+}
+
+/* SECCION INICIO-BOTON */
+.button {
+    display: inline-block;
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+    padding: 1.125rem 2rem;
+    font-weight: var(--font-mediano);
+    border-radius: .5rem;
+    transition: .3s;
+}
+
+.button:hover {
+    transform: translateY(-.25rem);
+}
+
+.button-light {
+    display: inline-flex;
+    color: var(--color-negro);
+    font-weight: var(--font-muygrande);
+    align-items: center;
+}
+
+.button-icon {
+    font-size: 1.25rem;
+    margin-left: var(--mb-1);
+    transition: .3s;
+}
+
+.button-light:hover .button-icon {
+    transform: translateX(.25rem);
+}
+
+/* SECCION POPULARES */
+.populares_container {
+    row-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.sneaker {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: var(--color-negro-claro2);
+    border-radius: .5rem;
+    transition: .3s;
+}
+
+.sneaker_sale {
+    position: absolute;
+    left: .5rem;
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+    padding: .25rem .5rem;
+    border-radius: .25rem;
+    font-size: var(--letra-h2);
+    transform: rotate(-90deg);
+    letter-spacing: .1rem;
+}
+
+.sneaker_img {
+    width: 220px;
+    margin-top: var(--mb-3);
+    margin-bottom: var(--mb-6);
+    transform: var(--rotate-img);
+    filter: drop-shadow(0 12px 8px rgba(0,0,0,.2));
+}
+
+.sneaker_name, .sneaker_precio {
+    font-size: var(--letra-h2);
+    letter-spacing: .1rem;
+    font-weight: var(--font-muygrande);
+}
+
+.sneaker_name {
+    margin-bottom: var(--mb-1);
+    text-align: center;
+}
+
+.sneaker_precio {
+    margin-bottom: var(--mb-4);
+}
+
+.sneaker:hover {
+    transform: translateY(-.5rem);
+}
+
+.sneaker_page {
+    margin-top: var(--mb-6);
+}
+
+.sneaker_pag {
+    padding: .5rem 1rem;
+    border: 1px solid var(--color-negro);
+}
+
+.sneaker_pag:hover {
+    background-color: var(--color-negro);
+    color: white;
+}
+
+
+
+/* SECCION COLECCION */
+.coleccion_container {
+    row-gap: 2rem;
+    justify-content: center;
+}
+
+.coleccion_card {
+    position: relative;
+    display: flex;
+    height: 328px;
+    background-color: var(--color-negro-claro2);
+    padding: 2rem;
+    border-radius: .5rem;
+    transition: .3s;
+}
+
+.coleccion_data {
+    align-self: flex-end;
+}
+
+.coleccion_img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 260px;
+}
+
+.coleccion_name {
+    font-size: var(--letra-masgrande);
+    margin-bottom: .25rem;
+}
+
+.coleccion_description {
+    margin-bottom: var(--mb-2);
+}
+
+.coleccion_card:hover {
+    transform: translateY(-.5rem);
+}
+
+/* SECCION MUJERES*/
+.mujer_container {
+    row-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* SECCION OFERTA*/
+.oferta_container {
+    grid-template-columns: 55% 45%;
+    column-gap: 0;
+    background-color: var(--color-negro-claro2);
+    border-radius: .5rem;
+    justify-content: center;
+}
+
+.oferta_data {
+    padding: 4rem 0 4rem 1.5rem;
+}
+
+.oferta_title {
+    font-size: var(--letra-masgrande);
+    margin-bottom: .25rem;
+}
+
+.oferta_description {
+    margin-bottom: var(--mb-3);
+}
+
+.oferta__img {
+    width: 200px;
+}
+
+/* SECCION NOVEDADES*/
+.novedades_container {
+    row-gap: 2rem;
+}
+
+.novedades_men {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--color-negro-claro2);
+    border-radius: .5rem;
+    padding: 2rem;
+}
+
+.novedades_men-img {
+    width: 276px;
+    margin-bottom: var(--mb-3);
+}
+
+.novedades_title {
+    font-size: var(--letra-masgrande);
+}
+
+.novedades_precio {
+    display: block;
+    margin-bottom: var(--mb-3);
+}
+
+.novedades_sneaker {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.novedades_sneaker-card {
+    position: relative;
+    padding: 3.5rem 1.5rem;
+    background-color: var(--color-negro-claro2);
+    border-radius: .5rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.novedades_sneaker-img {
+    width: 220px;
+}
+
+.novedades_sneaker-overlay {
+    position: absolute;
+    left: 0;
+    bottom: -100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(138,138,138,.3);
+    transition: .3s;
+}
+
+.novedades_sneaker-card:hover .novedades_sneaker-overlay {
+    bottom: 0;
+}
+
+/* SECCION CONTACTANOS*/
+.contacto__container {
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+    padding: 2rem .5rem;
+    border-radius: .5rem;
+    text-align: center;
+    margin: auto;
+}
+
+.contacto_title {
+    font-size: var(--letra-masgrande);
+    margin-bottom: var(--mb-2);
+}
+
+.contacto_description {
+    margin-bottom: var(--mb-5);
+}
+
+.contacto_suscribete {
+    display: flex;
+    column-gap: .5rem;
+    background-color: var(--color-blanco);
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.contacto_input {
+    outline: none;
+    border: none;
+    width: 90%;
+    font-size: var(--letra-normal);
+}
+
+.contacto_input::placeholder {
+    color: var(--color-negro);
+    font-family: var(--body-font);
+    font-size: var(--letra-normal);
+    font-weight: var(--font-grande);
+}
+
+/* SECCION FOOTER*/
+.foter_container {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.foter_box {
+    margin-bottom: var(--mb-4);
+}
+
+.foter_title {
+    font-size: var(--letra-grande);
+}
+
+.foter_link {
+    display: block;
+    width: max-content;
+    margin-bottom: var(--mb-1);
+}
+
+.foter_social {
+    font-size: 1.5rem;
+    margin-right: 1.25rem;
+}
+
+.foter_copy {
+    padding-top: 3rem;
+    font-size: var(--letra-pequeña);
+    color: var(--color-negro-claro);
+    text-align: center;
+}
+
+.foter_copy a{
+    color: var(--color-negro-claro);
+}
+
+/* ADAPACTION DE VENTANAS (MEDIA QUERIES) */
+@media screen and (min-width: 576px) {
+    .coleccion_container {
+        grid-template-columns: 415px;
+    }
+
+    .coleccion_img {
+        width: 260px;
+    }
+
+    .oferta_container {
+        grid-template-columns: max-content max-content;
+    }
+
+    .oferta_data {
+        text-align: center;
+    }
+
+    .novedades_men {
+        align-items: center;
+    }
+
+}
+
+
+@media screen and (min-width: 768px) {
+    body {
+        margin: 5px;
+    }
+
+    .section {
+        padding: 7rem 0;
+    }
+
+    .section-title::after {
+        width: 76px;
+    }
+
+    .nav {
+        height: calc(3rem + 1.5rem);
+    }
+
+    .nav_menu {
+        margin-left: auto;
+    }
+
+    .nav__list {
+        display: flex;
+    }
+
+    .nav_item {
+        margin-left: var(--mb-6);
+        margin-bottom: 0;
+    }
+
+    .nav_toggle {
+        display: none;
+    }
+
+    .inicio_container {
+        height: 100vh;
+        grid-template-columns: max-content max-content;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .inicio_sneaker {
+        order: 1;
+    }
+
+    .inicio_shape {
+        width: 396px;
+        height: 396px;
+    }
+
+    .inicio_img {
+        width: 470px;
+        top: 1.5rem;
+        right: 0;
+        left: -3rem;
+    }
+
+    .contacto__container {
+        grid-template-columns: max-content max-content;
+        justify-content: center;
+        align-items: center;
+        padding: auto;
+        column-gap: 3rem;
+    }
+
+    .contacto_description {
+        margin-bottom: 0;
+    }
+
+    .contacto_suscribete {
+        width: max-content;
+        height: max-content;
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+    .bd-grid {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .inicio_container {
+        column-gap: 8rem;
+    }
+
+    .coleccion_container {
+        grid-template-columns: repeat(2, 415px);
+    }
+
+    .novedades_container {
+        grid-template-columns: max-content 1fr;
+    }
+
+    .novedades_men {
+        align-items: initial;
+        justify-content: flex-end;
+        padding: 4rem 2rem;
+    }
+
+    .novedades_men-img {
+        margin-bottom: var(--mb-6);
+    }
+}
